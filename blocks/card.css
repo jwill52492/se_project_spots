@@ -5,10 +5,16 @@
 
 .card__title {
   font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 400px;
+  max-width: 413px;
+  color: #212121;
+  margin: 0;
+  padding-bottom: 4px;
+  text-align: left;
 }
 
 .card__image {
@@ -16,6 +22,8 @@
   width: 413px;
   object-fit: cover;
   display: block;
+  padding-bottom: 12px;
+  border-radius: 8px;
 }
 
 .card__content {
@@ -30,14 +38,22 @@
   width: 23px;
   border: none;
   background-color: transparent;
+}
+
+.card__like-button:hover {
   opacity: 40%;
 }
 
 @media screen and (max-width:627px) {
   .card {
     max-width: 288px;
-    align-items: center;
   }
+
+  .card__title {
+    font-size: 16px;
+    line-height: 1;
+  }
+
 
   .card__image {
     max-width: 288px;

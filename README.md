@@ -14,7 +14,7 @@ This is the/my 3rd project of the Software Engineering program at TripleTen. It 
 ## Deployment
 
 Webpage is deployed to Github pages.
-{ deployment link} (https://jwill52492.github.io/se_project_spots)
+{deployment link} (https://jwill52492.github.io/se_project_spots)
 
 ## Project Improvements
 
