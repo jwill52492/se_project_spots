@@ -15,7 +15,8 @@ This is the/my 3rd project of the Software Engineering program at TripleTen. It 
 
 Webpage is deployed to Github pages.
 {deployment link} (https://jwill52492.github.io/se_project_spots)
-{Spots video recording link} (https://drive.google.com/drive/folders/1gjNezrHTE2my4eNQ6fMc1KB_896boeFo?usp=drive_link)
+{Spots video recording link} (https://drive.google.com/file/d/1YnZ-3wsDVowoPajOLvUaeyeY1plSBs7Q/view?usp=sharing)
+
 
 ## Project Improvements
 
