@@ -1,5 +1,5 @@
 .card {
-  margin: 0 auto;
+  margin: 0;
   max-width: 413px;
 }
 
@@ -37,10 +37,12 @@
   width: 23px;
   border: none;
   background-color: transparent;
+  opacity: 40%;
 }
 
 .card__like-button:hover {
-  opacity: 40%;
+  opacity: 100%;
+  cursor: pointer;
 }
 
 @media screen and (max-width:627px) {
