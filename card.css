@@ -1,4 +1,6 @@
 .card {
+  display: flex;
+  flex-direction: column;
   max-width: 413px;
   gap: 12px;
 }
