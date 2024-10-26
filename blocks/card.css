@@ -63,4 +63,9 @@
     max-height: 288px;
   }
 
+  .card__like-button {
+    width: 20px;
+    height: 18px;
+  }
+
 }
