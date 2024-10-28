@@ -15,7 +15,7 @@
   max-width: 413px;
   color: #212121;
   margin: 0;
-  padding-bottom: 4px;
+  padding: 4px;
   text-align: left;
 }
 
@@ -36,7 +36,8 @@
 .card__like-button {
   background-image: url(../images/heart.svg);
   background-repeat: no-repeat;
-  padding: 16px;
+  background-size: cover;
+  flex-shrink: 0;
   height: 20px;
   width: 23px;
   border: none;
@@ -52,6 +53,7 @@
 @media screen and (max-width:627px) {
   .card {
     max-width: 288px;
+    padding: 0;
   }
 
   .card__title {
@@ -68,8 +70,8 @@
   .card__like-button {
     width: 20px;
     height: 18px;
-    padding: 12px;
     background-repeat: no-repeat;
+    padding: 0px;
   }
 
 }
