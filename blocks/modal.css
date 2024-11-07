@@ -136,6 +136,7 @@
 
   .modal__container {
     padding: 12px;
+    position: relative;
   }
 
   .modal__title {
@@ -170,5 +171,11 @@
   .modal__caption {
     font-size: 16px;
     line-height: 1.2;
+  }
+
+  .modal__close-button_type_preview {
+    position: absolute;
+    top: 41px;
+    right: 24px;
   }
 }
