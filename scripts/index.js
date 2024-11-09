@@ -77,7 +77,7 @@ function getCardElement(data) {
     openModal(previewModal);
     previewModalImageElement.src = data.link;
     previewModalCaption.textContent = data.name;
-    previewModalCaption.alt = data.name;
+    previewModalImageElement.alt = data.name;
   });
 
   return cardElement;
@@ -99,6 +99,7 @@ function handleAddCardSubmit(event) {
   const inputValues = {name: cardNameInput.value, link: cardLinkInput.value};
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
+  event.target.reset();
   closeModal(cardModal);
 }
 

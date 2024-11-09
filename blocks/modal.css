@@ -127,6 +127,7 @@
   bottom: 32;
   background-color: #212121;
   color: #ffffff;
+  border-radius: 8px;
 }
 
 @media screen and (max-width:627px) {
@@ -176,6 +177,6 @@
   .modal__close-button_type_preview {
     position: absolute;
     top: 41px;
-    right: 24px;
+
   }
 }
