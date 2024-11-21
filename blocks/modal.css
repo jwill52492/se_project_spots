@@ -130,15 +130,6 @@
   border-radius: 8px;
 }
 
-.modal__input_type_error {
-  border: 1px solid rgba(255, 0, 0, 0.6);
-}
-
-.modal__submit-button-error{
-  background-color: #212121;
-  opacity: 50%;
-}
-
 .modal__error {
   display: block;
   color: #ff0000;
@@ -147,6 +138,15 @@
   font-size: 16px;
   line-height: 1.1;
   margin-top: 8px;
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
+.modal__submit-button-error{
+  background-color: #212121;
+  opacity: 50%;
 }
 
 @media screen and (max-width:627px) {
