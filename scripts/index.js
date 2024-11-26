@@ -51,6 +51,8 @@ const previewModalClosedButton = previewModal.querySelector(".modal__close-butto
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
+const overlay = document.querySelector(".modal-overlay");
+
 function handleLike (evt) {
   evt.target.classList.toggle("card__like-button_liked")
 };
