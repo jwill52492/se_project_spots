@@ -168,7 +168,7 @@
   .modal__image {
     border-radius: 4px;
     border-style: none;
-    max-width: 288px;
+    max-width: 413px;
   }
 
   .modal__close-button {
@@ -196,7 +196,7 @@
 
   .modal__close-button_type_preview {
     position: absolute;
-    top: 41px;
-    right: 24px;
+    top: -35px;
+    right: 12px;
   }
 }

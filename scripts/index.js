@@ -52,6 +52,7 @@ const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
 const overlay = document.querySelector(".modal-overlay");
+const activeModal = document.querySelector("modal_opened");
 
 function handleLike (evt) {
   evt.target.classList.toggle("card__like-button_liked")
@@ -105,6 +106,18 @@ function handleAddCardSubmit(event) {
   event.target.reset();
   disableButton(cardSubmitButton, settings);
   closeModal(cardModal);
+}
+
+function handleEscClose(event) {
+  if (event.key === "Escape") {
+    closeModal(activeModal);
+  }
+}
+
+function handleOverlayClose(event) {
+  if (event.target.classList.contains ("modal_opened")) {
+    closeModal(event.target)
+  }
 }
 
 profileEditButton.addEventListener("click", () => {
