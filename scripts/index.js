@@ -55,9 +55,7 @@ const previewModalClosedButton = previewModal.querySelector(
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
-const modalForm = document.querySelectorAll(".modal__form");
-
-const modalOverlay = document.querySelectorAll(".modal");
+const modalOverlays = document.querySelectorAll(".modal");
 
 function handleLike(evt) {
   evt.target.classList.toggle("card__like-button_liked");
@@ -152,7 +150,7 @@ previewModalClosedButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
-modalOverlay.forEach((modal) => {
+modalOverlays.forEach((modal) => {
   modal.addEventListener("click", (event) => {
     if (event.target.classList.contains("modal")) {
       closeModal(modal);
