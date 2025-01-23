@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spots Landing Page"/>
+    <meta name="author" content="Johnnathon Williams"/>
+    <meta name="keywords" content="HTML, CSS"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <title>Spots</title>
+  </head>
+  <body class="page">
+    <div class="page__content">
+      <header class="header">
+        <img src="%=require(images/spots_logo.svg)%" alt="Spot Logo" class="header__logo" />
+      </header>
+      <main class="content">
+        <section class="profile page__section">
+          <img src="images/avatar.jpg" alt="Bessie-avatar" class="profile__avatar">
+          <div class="profile__column">
+            <h1 class="profile__name">Aliaune Damala Bouga Time Bongo Puru Nacka Lu Lu Lu Badara Akon...</h1>
+            <p class="profile__description">Known mononymously as Akon (/ˈeɪkɒn/), is a Senegalese-American singer,
+              record producer, and entrepreneur. An influential figure in modern world...
+            </p>
+            <button type="button" class="profile__edit-button">
+              <img src="images/pencil-icon.svg" alt="pencil icon" />Edit Profile
+            </button>
+          </div>
+          <button type="button" class="profile__add-button">
+            <img src="images/plus-icon.svg" alt="plus icon" />New Post
+          </button>
+        </section>
+        <section class="cards page__section">
+          <ul class="cards__list">
+            <template id="card-template">
+              <li class="card">
+                <img src="" alt="" class="card__image" />
+                <button type="button" class="card__delete-button"></button>
+                <div class="card__content">
+                  <h2 class="card__title"></h2>
+                  <button type="button" class="card__like-button"></button>
+                </div>
+              </li>
+            </template>
+          </ul>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">2024 © Spots</p>
+      </footer>
+      <div class="modal" id="edit-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-button"></button>
+          <h2 class="modal__title">Edit Profile</h2>
+          <form class="modal__form" id="edit-profile">
+            <label for="profile-name-input" class="modal__label">
+              Name
+              <input id="profile-name-input" type="text" class="modal__input" placeholder="Type your name" minlength="2" maxlength="40" required>
+              <span class="modal__error" id="profile-name-input-error"></span>
+            </label>
+            <label for="profile-description-input" class="modal__label">
+              Description
+              <input id="profile-description-input" type="text" class="modal__input" placeholder="Describe yourself" minlength="2" maxlength="200" required>
+              <span class="modal__error" id="profile-description-input-error"></span>
+            </label>
+            <button type="submit" class="modal__submit-button">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal" id="add-card-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-button"></button>
+          <h2 class="modal__title">New Post</h2>
+          <form class="modal__form" id="add-card-form">
+            <label for="add-card-link-input" class="modal__label">
+              Image Link
+              <input id="add-card-link-input" type="url" class="modal__input" placeholder="Paste a link to the picture" required>
+              <span class="modal__error" id="add-card-link-input-error">Please enter a URL.</span>
+            </label>
+            <label for="add-card-name-input" class="modal__label">
+              Caption
+              <input id="add-card-name-input" type="text" class="modal__input" placeholder="Type your caption" minlength="2" maxlength="30" required>
+              <span class="modal__error" id="add-card-name-input-error">Please fill out this field.</span>
+            </label>
+            <button type="submit" class="modal__submit-button">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="preview-modal">
+      <div class="modal__container modal__container_type_preview">
+        <button type="button" class="modal__close-button modal__close-button_type_preview"></button>
+        <img src="" alt="" class="modal__image" />
+        <p class="modal__caption"></p>
+      </div>
+    </div>
+  </body>
+</html>
