@@ -70,7 +70,7 @@ const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageElement = document.querySelector(".modal__image");
 const previewModalCaption = document.querySelector(".modal__caption");
-const previewModalClosedButton = previewModal.querySelector(".modal__close-button_type_preview");
+//const previewModalClosedButton = previewModal.querySelector(".modal__close-button_type_preview");
 
 const avatarModal = document.querySelector("#avatar-modal");
 const avatarForm = avatarModal.querySelector(".modal__form");
@@ -79,7 +79,7 @@ const avatarModalClosedButton = avatarModal.querySelector(".modal__close");
 const avatarinput = avatarModal.querySelector("#profile-avatar-input");
 
 const deleteModal = document.querySelector(".delete-modal");
-const deleteForm = deleteModal.querySelector("#.modal__form");
+const deleteForm = deleteModal.querySelector("#modal__form");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
