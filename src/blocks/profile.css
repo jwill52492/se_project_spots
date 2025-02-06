@@ -8,14 +8,31 @@
   position: relative;
 }
 
+.profile__avatar {
+  margin-right: 20px;
+  width: 190px;
+  height: 190px;
+  border-radius: 8px;
+}
+
 .profile__avatar-button {
   position: absolute;
-  width: 100%;
+  top: 162px;
+  left:39px;
+  border: none;
+  border-radius: 90px;
+  background-color: transparent;
+  color: #ffffff;
   display: flex;
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
   visibility: hidden;
-  margin-right: 20px;
+  border-radius: 90px;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
 }
 
 .profile__avatar-container:hover .profile__avatar-button {
@@ -25,14 +42,6 @@
 .profile__avatar-button::after {
   content: "Edit Avatar";
 }
-
-.profile__avatar {
-  margin-right: 20px;
-  width: 190px;
-  height: 190px;
-  border-radius: 8px;
-}
-
 
 .profile__column {
   display: flex;
