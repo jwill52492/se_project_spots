@@ -32,7 +32,7 @@ import Api from "../utils/Api.js";
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "9d26cb1f3304ff0ab1fa-e3fe-449c-9662-",
+    authorization: "30d363a4-0523-477a-9b2a-fd32a4407d5b",
     "Content-Type": "application/json"
   },
 });
@@ -70,16 +70,16 @@ const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageElement = document.querySelector(".modal__image");
 const previewModalCaption = document.querySelector(".modal__caption");
-//const previewModalClosedButton = previewModal.querySelector(".modal__close-button_type_preview");
+const previewModalClosedButton = previewModal.querySelector(".modal__close-button");
 
 const avatarModal = document.querySelector("#avatar-modal");
 const avatarForm = avatarModal.querySelector(".modal__form");
 //const avatarSubmitButton = avatarModal.querySelector(".modal__submit-button");
-const avatarModalClosedButton = avatarModal.querySelector(".modal__close");
+const avatarModalClosedButton = avatarModal.querySelector(".modal__close-button");
 const avatarinput = avatarModal.querySelector("#profile-avatar-input");
 
-const deleteModal = document.querySelector(".delete-modal");
-const deleteForm = deleteModal.querySelector("#modal__form");
+const deleteModal = document.querySelector("#delete-modal");
+const deleteForm = deleteModal.querySelector(".modal__form");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
