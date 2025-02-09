@@ -95,6 +95,11 @@
   line-height: 1;
 }
 
+.modal__title-delete {
+  font-size: 24px;
+  line-height: 1;
+}
+
 .modal__label {
   display: flex;
   flex-direction: column;
@@ -130,12 +135,6 @@
   border-radius: 8px;
 }
 
-.modal__submit-button-delete {
-  padding: 18px 32px;
-  background-color: #ffffff;
-  color:black;
-}
-
 .modal__error {
   display: block;
   color: #ff0000;
@@ -158,11 +157,38 @@
 .modal__container-delete {
   width: 630px;
   display: flex;
+  flex-direction: column;
   background-color: #ffffff;
+  color:#212121;
   border-radius: 8px;
   align-items: center;
   padding: 32px 20px;
   gap:32px;
+  border: 1px solid;
+}
+
+.modal__submit-button-delete {
+  background-color: #FF6565;
+  color: #212121;
+  border: none;
+  border-radius: 8px;
+}
+
+.modal__submit-button-delete:hover {
+  background-color: #FF3333;
+  cursor: pointer;
+}
+
+.modal__submit-button-cancel {
+  background-color: #ffffff;
+  color: #212121;
+  border-radius: 8px;
+}
+
+.modal__submit-button-cancel:hover {
+  background-color: #212121;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 
@@ -178,7 +204,6 @@
   .modal__container-delete {
     width: 300px;
     padding: 12px;
-    flex-direction: column;
   }
 
   .modal__title {

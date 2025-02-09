@@ -81,6 +81,7 @@ const avatarinput = avatarModal.querySelector("#profile-avatar-input");
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
 
+
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
@@ -90,9 +91,9 @@ let selectedCard;
 let SelectedCardId;
 
 function handleLike(event, id) {
-  //event.target.classList.toggle("card__like-button_liked");
-  const isLiked = document.querySelector("card__like-button_liked");
-  changeLikeStatus = ToggleEvent();
+  const likeButton = event.target;
+  likeButton.classList.toggle("card__like-button_liked");
+  changeLikeStatus(id, isLiked);
 }
 
 function handleDeleteCard(cardElement, data) {
@@ -157,6 +158,8 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener('keyup', handleEscape);
 }
+
+
 
 function handleEditFormSubmit(event) {
   event.preventDefault();
