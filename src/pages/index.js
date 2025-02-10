@@ -74,13 +74,14 @@ const previewModalClosedButton = previewModal.querySelector(".modal__close-butto
 
 const avatarModal = document.querySelector("#avatar-modal");
 const avatarForm = avatarModal.querySelector(".modal__form");
-//const avatarSubmitButton = avatarModal.querySelector(".modal__submit-button");
+const avatarSubmitButton = avatarModal.querySelector(".modal__submit-button");
 const avatarModalClosedButton = avatarModal.querySelector(".modal__close-button");
 const avatarinput = avatarModal.querySelector("#profile-avatar-input");
 
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
-
+const cancelDeleteButton = document.querySelector(".modal__submit-button-cancel");
+const deleteDeleteButton = document.querySelector("modal__submit-button-delete");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -235,6 +236,14 @@ avatarModalClosedButton.addEventListener("click", () => {
 avatarForm.addEventListener("submit", handleAvatarSubmit);
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);
+
+cancelDeleteButton.addEventListener("click", () => {
+  closeModal(deleteModal)
+});
+
+deleteDeleteButton.addEventListener("click", () => {
+  closeModal(deleteModal)
+});
 
 modalOverlays.forEach((modal) => {
   modal.addEventListener("click", (event) => {
