@@ -86,13 +86,15 @@ const deleteDeleteButton = document.querySelector("modal__submit-button-delete")
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
+const cardLikeButton =document.querySelector("card__like-button");
+
 const modalOverlays = document.querySelectorAll(".modal");
 
 let selectedCard;
 let SelectedCardId;
 
 function handleLike(event, id) {
-  const likeButton = event.target;
+  cardLikeButton.addEventListener("click", () => handleLike(event, id));
   likeButton.classList.toggle("card__like-button_liked");
   changeLikeStatus(id, isLiked);
 }
