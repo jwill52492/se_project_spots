@@ -219,6 +219,15 @@ function handleAvatarSubmit(event) {
     });
 }
 
+function handleLike(cardId, isLiked) {
+  api
+    .changeLikeStatus(cardId, isLiked)
+    .then((data) => {
+      cardLikeButton.toggleAttribute(data);
+    })
+    .catch(console.error)
+}
+
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
