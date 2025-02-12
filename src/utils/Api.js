@@ -4,7 +4,6 @@ class Api {
     this._headers = headers;
   }
 
-
   getInitialCards() {
     return fetch( `${this._baseUrl}/cards`, {
       method: "GET",
@@ -18,7 +17,7 @@ class Api {
   }
 
   getCards() {
-    return fetch( `${this._baseUrl}/card`, {
+    return fetch( `${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers
     }).then((res) => {
@@ -30,12 +29,13 @@ class Api {
   }
 
   getAppinfo() {
+
     return Promise.all([this.getInitialCards()]);
-  }
+   }
 
 
   getUserInfo({ name, about }) {
-    return fetch( `${this._baseUrl}/user/`, {
+    return fetch( `${this._baseUrl}/users/`, {
       method: "GET",
       headers: this._headers,
       body: JSON.stringify({
@@ -51,7 +51,7 @@ class Api {
   }
 
   editUserInfo({ name, about }) {
-    return fetch( `${this._baseUrl}/user/me`, {
+    return fetch( `${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
@@ -67,7 +67,7 @@ class Api {
   }
 
   editAvatarInfo(avatar) {
-    return fetch( `${this._baseUrl}/user/me/avatar`, {
+    return fetch( `${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
@@ -93,9 +93,9 @@ class Api {
     });
   }
 
-  addLike(id) {
+  changeLikeStatus(id, isLiked) {
     return fetch( `${this._baseUrl}/cards/${id}/likes`, {
-      method: "PUT",
+      method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
     }).then((res) => {
       if (res.ok) {
@@ -105,17 +105,6 @@ class Api {
     });
   }
 
-  removeLike(id) {
-    return fetch( `${this._baseUrl}/cards/${id}/likes`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject(`Error: ${res.status}`);
-    });
-  }
 
   // other methods for working with the API
 }
