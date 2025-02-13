@@ -231,8 +231,8 @@ function handleAvatarSubmit(event) {
 function handleLike(cardId, isLiked) {
   api
     .changeLikeStatus(cardId, isLiked)
-    .then((res) => {
-      document.querySelector("")
+    .then(() => {
+
       cardLikeButton.classList.toggle("liked", !isLiked);
     })
     .catch(console.error)
