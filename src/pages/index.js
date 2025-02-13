@@ -83,7 +83,7 @@ const deleteSubmitButton = document.querySelector(".modal__submit-button-delete"
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
-const cardLikeButton = document.querySelector("card__like-button");
+const cardLikeButton = document.querySelector(".card__like-button");
 
 const modalOverlays = document.querySelectorAll(".modal");
 
@@ -222,8 +222,8 @@ function handleAvatarSubmit(event) {
 function handleLike(cardId, isLiked) {
   api
     .changeLikeStatus(cardId, isLiked)
-    .then((data) => {
-      cardLikeButton.toggleAttribute(data);
+    .then(() => {
+      cardLikeButton.classList.toggle("liked", !isLiked);
     })
     .catch(console.error)
 }

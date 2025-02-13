@@ -29,7 +29,6 @@ class Api {
   }
 
   getAppinfo() {
-
     return Promise.all([this.getInitialCards()]);
    }
 
