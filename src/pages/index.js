@@ -129,7 +129,7 @@ function getCardElement(data) {
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
 
-  cardLikeButton.addEventListener("click", (event) => handleLike(event, data._id));
+  cardLikeButton.addEventListener("click", () => handleLike(data._id, data.isLiked));
   cardDeleteButton.addEventListener("click", () => handleDeleteCard(cardElement, data._id));
 
   cardImageElement.addEventListener("click", () => {
@@ -180,27 +180,36 @@ function handleEditFormSubmit(event) {
     });
 }
 
+//  function handleAddCardSubmit(event) {
+//    event.preventDefault();
+//    const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
+//    const cardElement = getCardElement(inputValues);
+//    cardsList.prepend(cardElement);
+//    event.target.reset();
+//    closeModal(cardModal);
+//    //disableButton(cardSubmitButton, settings);
+//  }
+
  function handleAddCardSubmit(event) {
    event.preventDefault();
+
    const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
-   const cardElement = getCardElement(inputValues);
-   cardsList.prepend(cardElement);
-   event.target.reset();
-   closeModal(cardModal);
-   //disableButton(cardSubmitButton, settings);
- }
+   const submitButton = event.submitter;
+   submitButton.textContent = "Saving...";
 
-// function handleAddCardSubmit(event) {
-//   event.preventDefault();
-
-//   const submitButton = event.submitter;
-//   submitButton.textContent = "Saving...";
-
-//   api
-//     .getCards({ name: cardNameInput.value, link: cardLinkInput.value})
-
-// }
-
+  api
+    .postCards(inputValues)
+    .then((res) => {
+      const cardElement = getCardElement(res);
+      cardsList.prepend(cardElement);
+      event.target.reset();
+      closeModal(cardModal);
+    })
+    .catch(console.error)
+    .finally(() => {
+      submitButton.textContent = "Save";
+    });
+}
 function handleAvatarSubmit(event) {
   event.preventDefault();
 
@@ -222,7 +231,8 @@ function handleAvatarSubmit(event) {
 function handleLike(cardId, isLiked) {
   api
     .changeLikeStatus(cardId, isLiked)
-    .then(() => {
+    .then((res) => {
+      document.querySelector("")
       cardLikeButton.classList.toggle("liked", !isLiked);
     })
     .catch(console.error)
