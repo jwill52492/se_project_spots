@@ -28,6 +28,22 @@ class Api {
     });
   }
 
+    getUserInfo({ name, about }) {
+    return fetch( `${this._baseUrl}/users/`, {
+      method: "GET",
+      headers: this._headers,
+      // body: JSON.stringify({
+      //   name,
+      //   about,
+      //}),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
   getAppinfo() {
     return Promise.all([this.getInitialCards()]);
    }
@@ -42,23 +58,6 @@ class Api {
           return res.json();
         }
         Promise.reject(`Error: ${res.status}`);
-    });
-  }
-
-
-  getUserInfo({ name, about }) {
-    return fetch( `${this._baseUrl}/users/`, {
-      method: "GET",
-      headers: this._headers,
-      body: JSON.stringify({
-        name,
-        about,
-      }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject(`Error: ${res.status}`);
     });
   }
 
