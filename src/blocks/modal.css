@@ -176,10 +176,8 @@
 }
 
 .modal__submit-button_disabled{
-  background-color: #212121;
-  opacity: 50%;
+  background-color: #808080;
 }
-
 
 .modal__submit-button-delete {
   background-color: #FF6565;

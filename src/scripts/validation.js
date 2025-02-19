@@ -58,7 +58,6 @@ const resetValidation = (formElement, inputList, config) => {
   inputList.forEach((input) => {
     hideInputError(formElement, input, config);
   });
-
 };
 
 const setEventListeners = (formElement, config) => {

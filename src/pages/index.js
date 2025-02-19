@@ -1,4 +1,4 @@
-import  "../pages/index.css";
+import "../pages/index.css";
 import { enableValidation, validationConfig } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 
@@ -184,13 +184,11 @@ function handleEscape(event) {
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener('keyup', handleEscape);
-  //resetValidation({ formInput, formElement});
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener('keyup', handleEscape);
-  format.reset();
 }
 
 
