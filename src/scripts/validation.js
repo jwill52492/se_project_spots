@@ -58,6 +58,7 @@ const resetValidation = (formElement, inputList, config) => {
   inputList.forEach((input) => {
     hideInputError(formElement, input, config);
   });
+
 };
 
 const setEventListeners = (formElement, config) => {
@@ -84,3 +85,4 @@ export const enableValidation = (config) => {
     setEventListeners(formElement, config);
   });
 };
+

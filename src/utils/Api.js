@@ -28,14 +28,10 @@ class Api {
     });
   }
 
-    getUserInfo({ name, about }) {
-    return fetch( `${this._baseUrl}/users/`, {
+  getUserInfo() {
+    return fetch( `${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers,
-      // body: JSON.stringify({
-      //   name,
-      //   about,
-      //}),
     }).then((res) => {
       if (res.ok) {
         return res.json();
@@ -44,9 +40,9 @@ class Api {
     });
   }
 
-  getAppinfo() {
-    return Promise.all([this.getInitialCards()]);
-   }
+  getAppInfo() {
+    return Promise.all([this.getInitialCards(), this.getUserInfo()]);
+  }
 
   postCards({ name, link }) {
     return fetch( `${this._baseUrl}/cards`, {

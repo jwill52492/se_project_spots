@@ -35,6 +35,10 @@
   line-height: 1;
 }
 
+.profile__avatar-button:hover {
+  cursor: pointer;
+}
+
 .profile__avatar-container:hover .profile__avatar-button {
   visibility: visible;
 }

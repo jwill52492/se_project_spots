@@ -1,33 +1,33 @@
-import "../pages/index.css";
+import  "../pages/index.css";
 import { enableValidation, validationConfig } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 
-const initialCards = [
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];
+// const initialCards = [
+//   {
+//     name: "Val Thorens",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+//   },
+//   {
+//     name: "Restaurant terrace",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+//   },
+//   {
+//     name: "An outdoor cafe",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
+//   },
+//   {
+//     name: "A very long bridge, over the forest and through the trees",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+//   },
+//   {
+//     name: "Tunnel with morning light",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+//   },
+//   {
+//     name: "Mountain house",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+//   },
+// ];
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -37,13 +37,16 @@ const api = new Api({
   },
 });
 
-api.getInitialCards().then((cards) => {
-    cards.forEach((item) => {
+api.getAppInfo().then(res => {
+  res[0].forEach((item) => {
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
   });
-})
-  .catch(console.error);
+
+  profileName.textContent = res[1].name;
+  profileDescription.textContent = res[1].about;
+  document.querySelector(".profile__avatar").src = res[1].avatar;
+}).catch(error => console.log(error));
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const cardModalButton = document.querySelector(".profile__add-button");
@@ -79,15 +82,22 @@ const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
 const cancelDeleteButton = document.querySelector(".modal__submit-button-cancel");
 const deleteSubmitButton = document.querySelector(".modal__submit-button-delete");
+const deleteClosedButton = deleteModal.querySelector(".modal__close-button_type_delete");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
 const modalOverlays = document.querySelectorAll(".modal");
+const closeButtons = document.querySelectorAll('.modal__close');
 
 let selectedCard;
 let selectedCardId;
 
+
+closeButtons.forEach((button) => {
+  const popup = button.closest('.modal');
+  button.addEventListener('click', () => closePopup(popup));
+});
 
 function handleDeleteCard(cardElement, data) {
   selectedCard = cardElement;
@@ -174,11 +184,13 @@ function handleEscape(event) {
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener('keyup', handleEscape);
+  //resetValidation({ formInput, formElement});
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener('keyup', handleEscape);
+  format.reset();
 }
 
 
@@ -225,6 +237,7 @@ function handleEditFormSubmit(event) {
 
 function handleAvatarSubmit(event) {
   event.preventDefault();
+
 
   const submitButton = event.submitter;
   submitButton.textContent = "Saving...";
@@ -277,6 +290,9 @@ avatarModalClosedButton.addEventListener("click", () => {
 avatarForm.addEventListener("submit", handleAvatarSubmit);
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);
+deleteClosedButton.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
 
 cancelDeleteButton.addEventListener("click", () => {
   closeModal(deleteModal)
