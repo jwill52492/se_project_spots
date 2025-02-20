@@ -45,8 +45,8 @@ const toggleButtonState = (inputList, buttonElement, config) => {
 };
 
 const disableButton = (buttonElement, config) => {
-  buttonElement.disabled = true;
   buttonElement.classList.add(config.inactiveButtonClass);
+  buttonElement.disabled = true;
 };
 
 const enableButton = (buttonElement, config) => {
@@ -54,7 +54,7 @@ const enableButton = (buttonElement, config) => {
   buttonElement.disabled = false
 }
 
-const resetValidation = (formElement, inputList, config) => {
+export const resetValidation = (formElement, inputList, config) => {
   inputList.forEach((input) => {
     hideInputError(formElement, input, config);
   });

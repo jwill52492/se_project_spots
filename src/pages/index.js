@@ -1,5 +1,5 @@
 import "../pages/index.css";
-import { enableValidation, validationConfig } from "../scripts/validation.js";
+import { enableValidation, resetValidation, validationConfig } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 
 // const initialCards = [
@@ -205,6 +205,10 @@ function handleEditFormSubmit(event) {
       profileName.textContent = editModalNameInput.value;
       profileDescription.textContent = editModalDescriptionInput.value;
       closeModal(editModal);
+      resetValidation(editFormElement, [
+        editModalNameInput,
+        editModalDescriptionInput
+      ]);
     })
     .catch(console.error)
     .finally(() => {
