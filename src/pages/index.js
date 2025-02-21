@@ -2,32 +2,6 @@ import "../pages/index.css";
 import { enableValidation, resetValidation, validationConfig } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 
-// const initialCards = [
-//   {
-//     name: "Val Thorens",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-//   },
-//   {
-//     name: "Restaurant terrace",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-//   },
-//   {
-//     name: "An outdoor cafe",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-//   },
-//   {
-//     name: "A very long bridge, over the forest and through the trees",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-//   },
-//   {
-//     name: "Tunnel with morning light",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-//   },
-//   {
-//     name: "Mountain house",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-//   },
-// ];
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -77,6 +51,7 @@ const avatarForm = avatarModal.querySelector(".modal__form");
 const avatarSubmitButton = avatarModal.querySelector(".modal__submit-button");
 const avatarModalClosedButton = avatarModal.querySelector(".modal__close-button");
 const avatarinput = avatarModal.querySelector("#avatar-input");
+const avatarImage = document.querySelector(".profile__avatar");
 
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
@@ -205,10 +180,10 @@ function handleEditFormSubmit(event) {
       profileName.textContent = editModalNameInput.value;
       profileDescription.textContent = editModalDescriptionInput.value;
       closeModal(editModal);
-      resetValidation(editFormElement, [
+      resetValidation(editFormElement,  [
         editModalNameInput,
         editModalDescriptionInput
-      ]);
+      ], validationConfig)
     })
     .catch(console.error)
     .finally(() => {
@@ -247,7 +222,7 @@ function handleAvatarSubmit(event) {
   api
     .editAvatarInfo(avatarinput.value)
     .then((res) => {
-      document.querySelector(".profile__avatar").src = res.avatar;
+      avatarImage.src = res.avatar;
       closeModal(avatarModal);
     })
     .catch(console.error)
