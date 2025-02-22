@@ -19,7 +19,7 @@ api.getAppInfo().then(res => {
 
   profileName.textContent = res[1].name;
   profileDescription.textContent = res[1].about;
-  document.querySelector(".profile__avatar").src = res[1].avatar;
+  avatarImage.src = res[1].avatar;
 }).catch(error => console.log(error));
 
 const profileEditButton = document.querySelector(".profile__edit-button");
